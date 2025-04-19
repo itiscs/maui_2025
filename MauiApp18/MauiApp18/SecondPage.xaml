@@ -11,26 +11,30 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <ListView  
+     <Button
+     Margin="15"
+     Text="Добавить пользователя"            
+     HorizontalOptions="Center" 
+     Clicked="Button_Clicked_1"
+     />
+            <CollectionView  
             x:Name="lstPeople"
-            ItemTapped="lstPeople_ItemTapped"
-            >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <HorizontalStackLayout>
-                                <Image Source="{Binding Image}" HeightRequest="50" WidthRequest="50" />
-                                <VerticalStackLayout>
-                                    <Label Text="{Binding Name}" FontSize="16" />
-                                    <Label Text="{Binding Age}" FontSize="14" />
-                                </VerticalStackLayout>
-                            </HorizontalStackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            SelectionMode="Single"
+            ItemsLayout="VerticalGrid, 3"
+            SelectionChanged="lstPeople_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}" HeightRequest="50" WidthRequest="50" />
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontSize="16" />
+                                <Label Text="{Binding Age}" FontSize="14" />
+                            </VerticalStackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                
+                </CollectionView.ItemTemplate>
+        </CollectionView>
 
         <Button
             Margin="15"

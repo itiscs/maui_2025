@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace MauiApp18.Models
 {
-    internal class Person
+
+    [Table("People")]
+    public class Person
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public string Name { get; set; } = "";
         public int Age { get; set; }
         public string Image { get; set; }
@@ -29,7 +34,6 @@ namespace MauiApp18.Models
                 Age = 25,
                 Image = "user2.png"
             });
-
             lst.Add(new Person()
             {
                 Name = "Jack",
@@ -38,8 +42,20 @@ namespace MauiApp18.Models
             });
             lst.Add(new Person()
             {
+                Name = "Jim",
+                Age = 30,
+                Image = "user.png"
+            });
+            lst.Add(new Person()
+            {
                 Name = "Susan",
                 Age = 33,
+                Image = "user2.png"
+            });
+            lst.Add(new Person()
+            {
+                Name = "Veronica",
+                Age = 22,
                 Image = "user2.png"
             });
             lst.Add(new Person()

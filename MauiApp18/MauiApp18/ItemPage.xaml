@@ -6,18 +6,43 @@
 
     <VerticalStackLayout>
         <Label 
-            Text="Пользователь!"
+            Text="Страница пользователя"
+            FontSize="30"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        
-        <HorizontalStackLayout>
-            <Image Source="{Binding Image}" HeightRequest="150" WidthRequest="150" />
-            <VerticalStackLayout Margin="10">
-                <Label Text="{Binding Name}" FontSize="26" />
-                <Label Text="{Binding Age}" FontSize="24" />
-            </VerticalStackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Image Source="{Binding Image}" Margin="10" 
+            HeightRequest="200" WidthRequest="200" />
+            <StackLayout Margin="10">
+                <HorizontalStackLayout>
+                    <Label Text="Имя" FontSize="26"/>
+                    <Editor Text="{Binding Name}" WidthRequest="200" FontSize="26" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Возраст" FontSize="26"/>
+                    <Editor Text="{Binding Age}" WidthRequest="70" FontSize="26" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Изображение" FontSize="26"/>
+                    <Editor Text="{Binding Image}" WidthRequest="200" FontSize="26" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </StackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button Text="Сохранить" 
+                    x:Name="btnSave"
+                    WidthRequest="200"
+                    Clicked="btnSave_Clicked"
+                    />
+            <Button Text="Удалить" 
+                    Margin="20,0,0,0"
+                    x:Name="btnDel"
+                    WidthRequest="200"
+                    BackgroundColor="OrangeRed"
+                    Clicked="btnDel_Clicked"
+                    />
         </HorizontalStackLayout>
-        
     </VerticalStackLayout>
-    
+
 </ContentPage>
